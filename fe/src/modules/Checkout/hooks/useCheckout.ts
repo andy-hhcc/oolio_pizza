@@ -14,7 +14,7 @@ const useCheckOut = (): ICheckOutHook => {
     if (_index >= 0) {
       const newList = replaceItemAtIndex(cart, _index, {
         ...product,
-        number: cart[_index].number + 1,
+        quantity: cart[_index].quantity + 1,
       })
       setCart(newList)
     } else {
@@ -25,11 +25,10 @@ const useCheckOut = (): ICheckOutHook => {
 
   const sum = (user: UserType, products: CartItem[]) => {
     apiPricing({
-      customerName: user,
+      user,
       products: products,
     }).then(({ data }) => {
-      const { total } = data.data
-      setTotal(total)
+      setTotal(data.data)
     })
       .catch()
       .finally()

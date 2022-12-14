@@ -6,10 +6,6 @@ export interface IPricingRule {
 }
 
 export interface IPricingRequest {
-  customerName: UserType
+  user: UserType
   products: CartItem[]
-}
-
-export interface IPricingResponse {
-  total: number
 }

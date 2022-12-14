@@ -1,5 +1,5 @@
 import app_wrapper from '../../app_wrapper/index'
-import { checkout, pricing } from './service'
+import { checkout, pricing } from './services'
 
 export const checkoutFn = app_wrapper({
     fn: checkout

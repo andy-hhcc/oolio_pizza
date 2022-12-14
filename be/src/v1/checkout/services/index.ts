@@ -2,28 +2,25 @@ import { parseBody } from '../../../shared/utils/helper'
 import { OrdersDAL } from '../dal/orders.dal'
 import { calculatePricing } from './pricing_rule'
 import AppError from '../../../app_error/index'
+import { IPricingRequest } from '../types'
 
 export const checkout = async ({ event, res }: any) => {
     const body = parseBody(event.body)
-    const data = await calculatePricing(body.customerName, body.products)
-
-    await OrdersDAL.create(data)
+    await OrdersDAL.create({})
 }
 
 export const pricing = async ({ event, res }: any) => {
-    const body = parseBody(event.body)
+    const pricingRequest: IPricingRequest = parseBody(event.body)
 
-    if (!body.customerName) {
-        throw AppError.GeneralInvalidParameters(['customerName is required'])
+    if (!pricingRequest.user) {
+        throw AppError.GeneralInvalidParameters(['user is required'])
     }
 
-    if (!body.products) {
+    if (!pricingRequest.products) {
         throw AppError.GeneralInvalidParameters(['products is required'])
     }
 
-    const data = await calculatePricing(body.customerName, body.products)
+    const price = await calculatePricing(pricingRequest)
 
-    res.data = {
-        total: data.total,
-    }
+    res.data = price
 }

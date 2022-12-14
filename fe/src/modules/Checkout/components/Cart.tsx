@@ -13,7 +13,7 @@ const Cart = () => {
         <tr key={`cart_${item.id}`}>
           <td>{index + 1}</td>
           <td>{item.name}</td>
-          <td>{item.number}</td>
+          <td>{item.quantity}</td>
         </tr>
       )
     })
