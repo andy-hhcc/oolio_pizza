@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo install dependencies
+      - npm install
+      - cd src/shared/helper/nodejs/node_modules/helper && npm install
+  build:
+    commands:
+      - npm run build
+      - cd src/shared/helper/nodejs/node_modules/helper && npm run compile

@@ -1,0 +1,32 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.product_list .col_name, .product_list .col_price {
+    width: 100px;
+}
+
+.product_list .col_description, .product_list .col_price {
+    width: 200px;
+}
+
+.cart {
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart .button_group {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}

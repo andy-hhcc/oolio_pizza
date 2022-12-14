@@ -1,0 +1,21 @@
+{
+  "name": "rpay_service",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/uuid": "*"
+  },
+  "dependencies": {
+    "@aws-sdk/client-scheduler": "^3.216.0",
+    "aws-cdk-lib": "^2.35.0",
+    "aws-sdk": "*",
+    "dynamoose": "^2.8.6",
+    "firebase": "^9.13.0",
+    "js-yaml": "^4.1.0",
+    "mailgun-js": "^0.22.0",
+    "moment": "^2.29.4",
+    "uuid": "*"
+  }
+}
